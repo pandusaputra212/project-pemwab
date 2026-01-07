@@ -1,0 +1,73 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<section class="mb-4">
+  <div class="p-4 p-md-5 bg-light rounded-3 shadow-sm">
+    <h2 class="fw-bold mb-2">Tentang Program Studi PTI</h2>
+    <p class="mb-3">
+      Program Studi Pendidikan Teknik Informatika (PTI) di Fakultas Keguruan dan Ilmu Pendidikan (FKIP) Universitas Muhammadiyah Surakarta (UMS)
+      berfokus pada pengembangan calon pendidik dan profesional di bidang informatika yang adaptif terhadap perkembangan teknologi.
+    </p>
+
+    <div class="row g-3">
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="h5">Gambaran Umum</h3>
+            <p class="mb-0">
+              PTI mengintegrasikan kompetensi pedagogik dengan kompetensi teknis: pemrograman, sistem informasi, jaringan komputer, multimedia,
+              serta pengembangan media pembelajaran berbasis teknologi.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h3 class="h5">Visi Singkat</h3>
+            <p class="mb-0">
+              Menjadi program studi unggul dalam pendidikan informatika yang berlandaskan nilai-nilai Islami, inovatif, dan berdaya saing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <div class="row g-3">
+      <div class="col-lg-4">
+        <div class="p-4 border rounded-3 h-100">
+          <h4 class="h6 text-uppercase text-muted">Bidang Minat</h4>
+          <ul class="mb-0">
+            <li>Rekayasa Perangkat Lunak & Aplikasi</li>
+            <li>Jaringan Komputer & Keamanan</li>
+            <li>Multimedia & UI/UX</li>
+            <li>Teknologi Pendidikan & Media Interaktif</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="p-4 border rounded-3 h-100">
+          <h4 class="h6 text-uppercase text-muted">Kompetensi Lulusan</h4>
+          <ul class="mb-0">
+            <li>Pendidik Informatika</li>
+            <li>Pengembang Aplikasi / Web</li>
+            <li>Admin Jaringan / IT Support</li>
+            <li>Pengembang Media Pembelajaran</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="p-4 border rounded-3 h-100">
+          <h4 class="h6 text-uppercase text-muted">Informasi Lanjut</h4>
+          <p class="mb-2">
+            Untuk informasi terbaru, silakan lihat halaman berita.
+          </p>
+          <a class="btn btn-sm btn-primary" href="{% url 'post_list' %}">Lihat Berita</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

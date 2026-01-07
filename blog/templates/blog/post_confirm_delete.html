@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-body text-center">
+            <h4 class="mb-3 text-danger">Hapus Berita</h4>
+
+            <p>
+                Apakah Anda yakin ingin menghapus berita berikut?
+            </p>
+
+            <p class="fw-bold">
+                "{{ post.title }}"
+            </p>
+
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">
+                    Ya, Hapus
+                </button>
+                <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-secondary">
+                    Batal
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

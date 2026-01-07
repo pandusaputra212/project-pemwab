@@ -1,0 +1,139 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<style>
+    /* Custom Styling untuk Landing Page */
+    .hero-box {
+        background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                    url('https://www.transparenttextures.com/patterns/cubes.png');
+        border-left: 10px solid var(--navy-ums);
+    }
+    
+    .card-custom {
+        transition: all 0.3s ease;
+        border: none;
+        border-top: 5px solid var(--navy-ums);
+    }
+
+    .card-custom:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 45, 85, 0.1) !important;
+    }
+
+    .icon-box {
+        color: var(--navy-ums);
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .btn-navy {
+        background-color: var(--navy-ums);
+        color: white;
+        border-radius: 50px;
+        padding: 10px 25px;
+    }
+
+    .btn-navy:hover {
+        background-color: var(--navy-light);
+        color: white;
+    }
+</style>
+
+<section class="p-4 p-md-5 hero-box rounded-3 shadow-sm mb-5 mt-3">
+  <div class="container py-2">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-8">
+        <h2 class="display-5 fw-bold mb-3" style="color: var(--navy-ums);">Website Profil Program Studi PTI UMS</h2>
+        <p class="lead mb-4 text-muted">
+          Pusat informasi resmi untuk mengenal identitas, keunggulan akademik, serta dokumentasi kegiatan terbaru Program Studi Pendidikan Teknik Informatika.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a class="btn btn-navy shadow-sm" href="{% url 'post_list' %}">
+            <i class="fas fa-newspaper me-2"></i>Lihat Berita
+          </a>
+          <a class="btn btn-outline-dark rounded-pill px-4" href="{% url 'about' %}">
+            <i class="fas fa-info-column me-2"></i>Tentang PTI
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-lg" style="border-radius: 15px;">
+          <div class="card-body p-4">
+            <h5 class="card-title mb-3 fw-bold" style="color: var(--navy-ums);">
+                <i class="fas fa-id-card me-2"></i>Identitas Prodi
+            </h5>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2 pb-2 border-bottom"><strong>Prodi:</strong> PTI</li>
+              <li class="mb-2 pb-2 border-bottom"><strong>Fakultas:</strong> FKIP</li>
+              <li class="mb-2 pb-2 border-bottom"><strong>Universitas:</strong> UMS</li>
+              <li class="mb-0"><strong>Fokus:</strong> Software, Networking, Multimedia</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-5 opacity-25"/>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 card-custom shadow-sm">
+          <div class="card-body text-center p-4">
+            <div class="icon-box"><i class="fas fa-code"></i></div>
+            <h5 class="card-title fw-bold">Apa yang Dipelajari?</h5>
+            <p class="card-text text-muted">
+              Integrasi ilmu pendidikan dengan teknis informatika: pemrograman, jaringan komputer, hingga pengembangan media pembelajaran modern.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 card-custom shadow-sm">
+          <div class="card-body text-center p-4">
+            <div class="icon-box"><i class="fas fa-trophy"></i></div>
+            <h5 class="card-title fw-bold">Kegiatan & Prestasi</h5>
+            <p class="card-text text-muted">
+              Aktif dalam kompetisi nasional, proyek kolaboratif mahasiswa, serta pengabdian masyarakat berbasis teknologi informasi.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 card-custom shadow-sm">
+          <div class="card-body text-center p-4">
+            <div class="icon-box"><i class="fas fa-sync-alt"></i></div>
+            <h5 class="card-title fw-bold">Update Terbaru</h5>
+            <p class="card-text text-muted">
+              Sistem berita dinamis yang memudahkan pemantauan pengumuman dan artikel akademik secara real-time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mb-5">
+  <div class="d-flex align-items-center mb-4">
+    <div style="width: 50px; height: 5px; background: var(--gold-ums); margin-right: 15px;"></div>
+    <h3 class="h4 m-0 fw-bold">Akses Cepat</h3>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="p-4 bg-white border-0 shadow-sm rounded-3 h-100 border-start border-5 border-primary">
+        <h4 class="h5 fw-bold"><i class="fas fa-bullhorn me-2 text-primary"></i>Berita & Artikel</h4>
+        <p class="text-muted small">Akses daftar berita terbaru dan pengumuman resmi dari database program studi.</p>
+        <a class="btn btn-sm btn-navy" href="{% url 'post_list' %}">Buka Halaman Berita</a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="p-4 bg-white border-0 shadow-sm rounded-3 h-100 border-start border-5 border-secondary">
+        <h4 class="h5 fw-bold"><i class="fas fa-user-graduate me-2 text-secondary"></i>Profil Program Studi</h4>
+        <p class="text-muted small">Pelajari visi, misi, dan struktur kurikulum yang ditawarkan oleh PTI UMS.</p>
+        <a class="btn btn-sm btn-outline-dark rounded-pill" href="{% url 'about' %}">Buka Halaman About</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

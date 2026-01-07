@@ -1,0 +1,127 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<nav class="container mt-3" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/" class="text-decoration-none" style="color: var(--navy-ums);">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Berita & Informasi</li>
+    </ol>
+</nav>
+
+<div class="hero-section text-center p-5 mb-5 shadow-sm" 
+     style="background: linear-gradient(135deg, var(--navy-ums) 0%, var(--navy-light) 100%); border-radius: 15px; border-bottom: 5px solid var(--gold-ums);">
+    <div class="container">
+        <h1 class="display-5 fw-bold text-white mb-3">
+            <i class="fas fa-newspaper me-2"></i> Berita & Informasi Prodi PTI
+        </h1>
+        <p class="lead text-white-50">
+            Dokumentasi kegiatan, pengumuman akademik, dan artikel seputar Pendidikan Teknik Informatika UMS
+        </p>
+        
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-7">
+                <form method="GET" action="{% url 'post_list' %}" class="input-group">
+                    <input type="text" name="q" class="form-control form-control-lg border-0 shadow-none" 
+                           placeholder="Cari berita PTI..." value="{{ query|default:'' }}"
+                           style="border-radius: 50px 0 0 50px; padding-left: 25px;">
+                    <button class="btn btn-warning btn-lg px-4 fw-bold" type="submit" 
+                            style="border-radius: 0 50px 50px 0; color: var(--navy-ums); background-color: var(--gold-ums); border: none;">
+                        <i class="fas fa-search"></i> Cari
+                    </button>
+                </form>
+                {% if query %}
+                    <p class="mt-3 text-white-50 small">
+                        Hasil pencarian: <span class="badge bg-light text-dark">"{{ query }}"</span> 
+                        | <a href="{% url 'post_list' %}" class="text-warning text-decoration-none fw-bold ms-2">Tampilkan Semua</a>
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row g-4"> 
+        {% for post in posts %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0 card-hover bg-white">
+                
+                <div class="position-relative">
+                    {% if post.header_image %}
+                        <img src="{{ post.header_image.url }}" class="card-img-top" alt="{{ post.title }}" 
+                             style="height: 220px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                    {% else %}
+                        <img src="https://placehold.co/600x400/002d55/white?text=PTI+UMS" class="card-img-top" 
+                             style="height: 220px; object-fit: cover; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                    {% endif %}
+                    
+                    <span class="badge position-absolute top-0 end-0 m-3 shadow-sm
+                        {% if post.category == 'pengumuman' %}bg-danger
+                        {% elif post.category == 'akademik' %}bg-primary
+                        {% elif post.category == 'kegiatan' %}bg-success
+                        {% else %}bg-secondary{% endif %}">
+                        {{ post.get_category_display }}
+                    </span>
+                </div>
+
+                <div class="card-body d-flex flex-column p-4">
+                    <h5 class="card-title fw-bold text-dark mb-3">
+                        {{ post.title }}
+                    </h5>
+
+                    <p class="card-text text-muted mb-4 small">
+                        {{ post.text|striptags|truncatewords:18 }}
+                    </p>
+
+                    <div class="mt-auto">
+                        <a href="{% url 'post_detail' pk=post.pk %}" 
+                           class="btn btn-outline-primary w-100 rounded-pill fw-bold btn-sm">
+                            Baca Selengkapnya
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-footer bg-transparent border-0 px-4 pb-4 text-muted x-small">
+                    <hr class="mt-0 opacity-10">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span><i class="far fa-calendar-alt me-1 text-primary"></i> {{ post.published_date|date:"d M Y" }}</span>
+                        <span class="text-truncate" style="max-width: 100px;"><i class="far fa-user me-1 text-primary"></i> {{ post.author }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            <div class="col-12 text-center py-5">
+                <i class="fas fa-search-minus fa-3x text-muted mb-3"></i>
+                <h3 class="text-muted">Maaf, berita tidak ditemukan.</h3>
+                <p class="text-muted">Cobalah kata kunci lain atau kembali ke halaman utama.</p>
+                <a href="{% url 'post_list' %}" class="btn btn-navy rounded-pill mt-2">Kembali ke Semua Berita</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .x-small { font-size: 0.75rem; }
+    
+    .card-hover {
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        border-radius: 15px !important;
+    }
+    
+    .card-hover:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0,45,85,0.15) !important;
+    }
+
+    .btn-outline-primary {
+        border-color: var(--navy-ums);
+        color: var(--navy-ums);
+    }
+
+    .btn-outline-primary:hover {
+        background-color: var(--navy-ums);
+        border-color: var(--navy-ums);
+    }
+</style>
+{% endblock %}

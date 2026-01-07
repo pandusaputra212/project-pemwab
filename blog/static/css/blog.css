@@ -1,0 +1,154 @@
+/* ===============================
+   VARIABEL WARNA (DIPERBARUI)
+   =============================== */
+:root {
+    --primary-black: #000000;
+    --secondary-black: #1f1f1f;
+
+    /* OREN */
+    --accent-orange: #C25100;
+    --light-orange: #FFCC80;
+    --bg-orange: #FFA726;
+
+    --text-dark: #222222;
+}
+
+/* ===============================
+   HEADER / NAVBAR
+   =============================== */
+.page-header {
+    background-color: var(--primary-black);
+    border-bottom: 5px solid var(--accent-orange);
+    margin-top: 0;
+    margin-bottom: 40px;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1,
+.page-header h1 a,
+.page-header h1 a:visited,
+.page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+/* ===============================
+   FONT JUDUL
+   =============================== */
+h1, h2, h3, h4 {
+    font-family: 'Lobster', cursive;
+}
+
+/* ===============================
+   MENU ATAS
+   =============================== */
+.top-menu,
+.top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.top-menu:hover {
+    color: var(--accent-orange);
+}
+
+/* ===============================
+   POST / ARTIKEL
+   =============================== */
+.post {
+    margin-bottom: 70px;
+}
+
+.post h2 a,
+.post h2 a:visited {
+    color: var(--primary-black);
+}
+
+.post h2 a:hover {
+    color: var(--accent-orange);
+}
+
+.post > .date,
+.post > .actions {
+    float: right;
+}
+
+.date {
+    color: #5f3700;
+}
+
+.save {
+    float: right;
+}
+
+/* ===============================
+   FORM
+   =============================== */
+.post-form textarea,
+.post-form input {
+    width: 100%;
+    background-color: var(--light-orange);
+    border: 1px solid var(--accent-orange);
+}
+
+/* ===============================
+   TOMBOL
+   =============================== */
+.btn-secondary,
+.btn-secondary:visited {
+    color: #ffffff;
+    background-color: var(--accent-orange);
+    border-color: var(--accent-orange);
+    margin-left: 15px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-black);
+    border-color: var(--secondary-black);
+    color: #ffffff;
+}
+
+/* ===============================
+   HERO SECTION
+   =============================== */
+.hero-section {
+    background-color: var(--bg-orange);
+}
+
+/* ===============================
+   CARD
+   =============================== */
+.card {
+    background-color: var(--light-orange);
+}
+
+.card-title {
+    font-weight: 600;
+    color: var(--primary-black);
+}
+
+.card-footer {
+    background-color: var(--bg-orange);
+}
+
+/* ===============================
+   BADGE
+   =============================== */
+.badge {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+    border-radius: 12px;
+    background-color: var(--accent-orange);
+    color: #ffffff;
+}
+
+/* ===============================
+   BODY
+   =============================== */
+body {
+    background-color: var(--bg-orange);
+    color: var(--text-dark);
+}
